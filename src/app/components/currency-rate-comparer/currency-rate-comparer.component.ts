@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 
 import { CurrencyService } from '../../shared/services/currency-service.service';
 
@@ -10,6 +9,7 @@ import { CustomAmount } from '../../shared/models/custom-amount.model';
   selector: 'crc-currency-rate-comparer',
   template: `
     <h1>Currency rates</h1>
+    <button (click)="onCurrencyChanged(currencyData.target, currencyData.source)">Switch</button>
     <crc-currency-rate-display [currencyData]="currencyData"></crc-currency-rate-display>
     <crc-custom-amount 
         [customAmount]="customAmount"
@@ -19,17 +19,13 @@ import { CustomAmount } from '../../shared/models/custom-amount.model';
   styleUrls: ['./currency-rate-comparer.component.scss']
 })
 export class CurrencyRateComparerComponent implements OnInit {
-  public currencyDataSub$: Observable<CurrencyRate>;
   public currencyData: CurrencyRate;
   public customAmount: CustomAmount;
 
   constructor(private currencyService: CurrencyService) { }
 
   ngOnInit() {
-    this.currencyDataSub$ = this.currencyService.getCurrencyData('nok', 'sek');
-    this.currencyDataSub$.subscribe(
-      data => this.setCurrencyData(data),
-      err => console.error(err));
+    this.onCurrencyChanged('nok', 'sek');
   }
 
   setCurrencyData (data: CurrencyRate): void {
@@ -38,7 +34,9 @@ export class CurrencyRateComparerComponent implements OnInit {
   }
 
   onCurrencyChanged(source: string, target: string): void {
-    this.currencyDataSub$ = this.currencyService.getCurrencyData(source, target);
+    this.currencyService.getCurrencyData(source, target).subscribe(
+      data => this.setCurrencyData(data),
+      err => console.error(err));
   }
 
   onCustomAmountChanged(customAmount: CustomAmount, sourceChanged: boolean = true): void {
