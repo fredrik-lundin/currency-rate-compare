@@ -19,7 +19,7 @@ describe('CurrencyRateComparerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the CurrencyRateComparerComponent wihtout errors', () => {
     expect(component).toBeTruthy();
   });
 });

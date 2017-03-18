@@ -19,7 +19,7 @@ describe('CurrencyRateDisplayComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the CurrencyRateDisplayComponent wihtout errors', () => {
     expect(component).toBeTruthy();
   });
 });

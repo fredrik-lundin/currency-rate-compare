@@ -19,7 +19,7 @@ describe('CustomAmountComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the CustomAmountComponent wihtout errors', () => {
     expect(component).toBeTruthy();
   });
 });
