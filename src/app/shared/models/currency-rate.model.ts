@@ -1,7 +1,5 @@
-import { CurrencyCountry } from './currency-country.model';
-
 export class CurrencyRate {
-    source: CurrencyCountry;
-    target: CurrencyCountry;
+    source: string;
+    target: string;
     rate: number;
 }

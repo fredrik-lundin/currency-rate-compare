@@ -3,7 +3,16 @@ import { CurrencyRate } from '../../shared/models/currency-rate.model';
 
 @Component({
   selector: 'crc-currency-rate-display',
-  templateUrl: './currency-rate-display.component.html',
+  template: `
+    <section>
+      <h2>{{currencyData?.source}}</h2>
+      <p>1</p>
+    </section>
+    <section>
+      <h2>{{currencyData?.target}}</h2>
+      <p>{{currencyData?.rate}}</p>
+    </section>
+  `,
   styleUrls: ['./currency-rate-display.component.scss']
 })
 export class CurrencyRateDisplayComponent {

@@ -7,18 +7,24 @@ import { AppComponent } from './core/app.component';
 import { CurrencyRateComparerComponent } from './components/currency-rate-comparer/currency-rate-comparer.component';
 import { CurrencyRateDisplayComponent } from './components/currency-rate-display/currency-rate-display.component';
 
+import { CurrencyService } from './shared/services/currency-service.service';
+import { CustomAmountComponent } from './components/custom-amount/custom-amount.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     CurrencyRateComparerComponent,
-    CurrencyRateDisplayComponent
+    CurrencyRateDisplayComponent,
+    CustomAmountComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    CurrencyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
