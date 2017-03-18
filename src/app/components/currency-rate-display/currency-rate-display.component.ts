@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CurrencyRate } from '../../shared/models/currency-rate.model';
 
 @Component({
@@ -13,7 +13,8 @@ import { CurrencyRate } from '../../shared/models/currency-rate.model';
       <p>{{currencyData?.rate}}</p>
     </section>
   `,
-  styleUrls: ['./currency-rate-display.component.scss']
+  styleUrls: ['./currency-rate-display.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CurrencyRateDisplayComponent {
   @Input('currencyData') currencyData: CurrencyRate;

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 import { CustomAmount } from '../../shared/models/custom-amount.model';
 import { CustomAmountChangedEvent } from '../../shared/event-types/custom-amount-changed.event';
@@ -11,7 +11,8 @@ import { CustomAmountChangedEvent } from '../../shared/event-types/custom-amount
       <input type="number" [(ngModel)]="customAmount.targetAmount" (ngModelChange)="onCustomAmountChanged(false)" />
     </section>
   `,
-  styleUrls: ['./custom-amount.component.scss']
+  styleUrls: ['./custom-amount.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomAmountComponent {
   @Input('customAmount') customAmount: CustomAmount;
