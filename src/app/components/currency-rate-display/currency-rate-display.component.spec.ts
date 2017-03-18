@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CurrencyRateDisplayComponent } from './currency-rate-display.component';
+import { AppModule } from '../../app.module';
 
 describe('CurrencyRateDisplayComponent', () => {
   let component: CurrencyRateDisplayComponent;
@@ -8,9 +9,8 @@ describe('CurrencyRateDisplayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CurrencyRateDisplayComponent ]
-    })
-    .compileComponents();
+      imports: [AppModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

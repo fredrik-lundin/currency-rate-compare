@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppModule } from '../../app.module';
-import { CurrencyRateComparerComponent } from './currency-rate-comparer.component';
+import { CustomAmountComponent } from './custom-amount.component';
 
-describe('CurrencyRateComparerComponent', () => {
-  let component: CurrencyRateComparerComponent;
-  let fixture: ComponentFixture<CurrencyRateComparerComponent>;
+describe('CustomAmountComponent', () => {
+  let component: CustomAmountComponent;
+  let fixture: ComponentFixture<CustomAmountComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -14,7 +14,7 @@ describe('CurrencyRateComparerComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CurrencyRateComparerComponent);
+    fixture = TestBed.createComponent(CustomAmountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
