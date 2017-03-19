@@ -11,7 +11,7 @@ import { CustomAmount } from '../models/custom-amount.model';
 
 @Injectable()
 export class CurrencyService {
-  private readonly URL_LATEST = 'http://api.fixer.io/latest';
+  private readonly URL_LATEST = 'https://api.fixer.io/latest';
 
   constructor(private http: Http) { }
 
