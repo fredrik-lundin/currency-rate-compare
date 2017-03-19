@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/map';
 
+import { CurrencyRates } from '../models/currency-rates.model';
 import { CurrencyRate } from '../models/currency-rate.model';
 import { CustomAmount } from '../models/custom-amount.model';
 
@@ -14,7 +15,7 @@ export class CurrencyService {
 
   constructor(private http: Http) { }
 
-  getCurrencyData(source: string, target: string): Observable<CurrencyRate> {
+  getCurrencyData(source: string, target: string): Observable<CurrencyRates> {
     source = source.toUpperCase();
     target = target.toUpperCase();
 
@@ -26,33 +27,28 @@ export class CurrencyService {
       .map(response => response.json())
       .map(currency => {
         return {
-          rate: currency.rates[target],
-          source: source,
-          target: target
+          source: {
+            code: source,
+            rate: 1
+          },
+          target: {
+            code: target,
+            rate: currency.rates[target]
+          }
         };
       });
-
-    // return Observable.from([{
-    //   rate: 1.0394,
-    //   source: 'NOK',
-    //   target: 'SEK',
-    // }]);
   }
 
-  calculateCustomAmount(oldCustomAmount: CustomAmount, sourceChanged: boolean, rate: number): CustomAmount {
-    if (!oldCustomAmount) {
-      oldCustomAmount = { sourceAmount: 10, targetAmount: 10 };
-    }
-
+  calculateCustomAmount(newAmount: number, sourceChanged: boolean, rate: number): CustomAmount {
     return sourceChanged ?
       {
-        sourceAmount: oldCustomAmount.sourceAmount,
-        targetAmount: oldCustomAmount.sourceAmount * rate
+        sourceAmount: newAmount,
+        targetAmount: newAmount * rate
       }
       :
       {
-        sourceAmount: oldCustomAmount.targetAmount / rate,
-        targetAmount: oldCustomAmount.targetAmount
+        sourceAmount: newAmount / rate,
+        targetAmount: newAmount
       };
   }
 }

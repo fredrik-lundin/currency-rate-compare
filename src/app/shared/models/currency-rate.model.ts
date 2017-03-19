@@ -1,5 +1,4 @@
 export class CurrencyRate {
-    source: string;
-    target: string;
+    code: string;
     rate: number;
 }
