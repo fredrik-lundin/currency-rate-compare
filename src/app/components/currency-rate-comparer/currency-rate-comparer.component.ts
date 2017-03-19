@@ -8,18 +8,26 @@ import { CustomAmount } from '../../shared/models/custom-amount.model';
 @Component({
   selector: 'crc-currency-rate-comparer',
   template: `
-    <h1>Currency rates</h1>
-    <button (click)="onCurrencyChanged(currencyRates.target.code, currencyRates.source.code)">Switch</button>
-    <crc-currency-card 
-      [currencyData]="currencyRates?.source"
-      [customAmount]="customAmount?.sourceAmount"
-      (customAmountChanged)="onCustomAmountChanged($event, true)">
-    </crc-currency-card>
-    <crc-currency-card 
-      [currencyData]="currencyRates?.target"
-      [customAmount]="customAmount?.targetAmount"
-      (customAmountChanged)="onCustomAmountChanged($event, false)">
-    </crc-currency-card>
+  <main>
+      <h1>Currency rates</h1>
+      <crc-currency-card 
+        [currencyData]="currencyRates?.source"
+        [customAmount]="customAmount?.sourceAmount"
+        (customAmountChanged)="onCustomAmountChanged($event, true)">
+      </crc-currency-card>
+
+      <div class="switch-button-wrapper">
+        <button (click)="onCurrencyChanged(currencyRates.target.code, currencyRates.source.code)">
+          <i class="fa fa-exchange swtich-button-icon" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <crc-currency-card 
+        [currencyData]="currencyRates?.target"
+        [customAmount]="customAmount?.targetAmount"
+        (customAmountChanged)="onCustomAmountChanged($event, false)">
+      </crc-currency-card>
+    </main>
   `,
   styleUrls: ['./currency-rate-comparer.component.scss']
 })
@@ -34,7 +42,7 @@ export class CurrencyRateComparerComponent implements OnInit {
     this.onCurrencyChanged('nok', 'sek');
   }
 
-  setCurrencyData (data: CurrencyRates): void {
+  setCurrencyData(data: CurrencyRates): void {
     this.currencyRates = data;
     this.customAmount = this.currencyService.calculateCustomAmount(this.customAmount.sourceAmount, true, this.currencyRates.target.rate);
   }

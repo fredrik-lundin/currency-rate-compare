@@ -1,0 +1,27 @@
+:host {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 2px;
+    width: 100%;
+    max-width: 500px;
+}
+
+main h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+.switch-button-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.swtich-button-icon {
+    font-size: 2.5em;
+}
