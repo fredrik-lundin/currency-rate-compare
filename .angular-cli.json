@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "crc",
       "styles": [
-        "assets/styles/styles.scss"
+        "assets/styles/styles.scss",
+        "../node_modules/font-awesome/css/font-awesome.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
