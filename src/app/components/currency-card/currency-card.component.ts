@@ -6,7 +6,6 @@ import { CurrencyRate } from '../../shared/models/currency-rate.model';
   template: `
     <section class="card">
       <header>{{currencyData?.code}} <span>({{currencyData?.rate}})</span></header>
-      
       <input type="number" [(ngModel)]="customAmount" (ngModelChange)="onCustomAmountChanged()" />
     </section>
   `,

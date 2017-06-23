@@ -8,12 +8,14 @@ import { CurrencyRateComparerComponent } from './components/currency-rate-compar
 
 import { CurrencyService } from './shared/services/currency-service.service';
 import { CurrencyCardComponent } from './components/currency-card/currency-card.component';
+import { SwitchCurrencyButtonComponent } from './components/switch-currency-button/switch-currency-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CurrencyRateComparerComponent,
-    CurrencyCardComponent
+    CurrencyCardComponent,
+    SwitchCurrencyButtonComponent
   ],
   imports: [
     BrowserModule,
