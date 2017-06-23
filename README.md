@@ -1,3 +1,5 @@
+![alt tag](https://frelli.visualstudio.com/_apis/public/build/definitions/0181066d-f047-4e51-946b-a50d17256458/1/badge)
+
 # CurrencyRateCompare
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.2.
