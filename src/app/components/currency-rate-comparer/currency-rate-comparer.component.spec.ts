@@ -20,6 +20,7 @@ describe('CurrencyRateComparerComponent', () => {
   });
 
   it('should create the CurrencyRateComparerComponent wihtout errors', () => {
-    expect(component).toBeFalsy();
+    expect(component).toBeTruthy();
   });
 });
+

@@ -28,5 +28,4 @@ export class CurrencyCardComponent {
   onCustomAmountChanged() {
     this.customAmountChanged.emit(this.customAmount);
   }
-
 }
